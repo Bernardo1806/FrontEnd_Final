@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/991.99ea06ab.chunk.css","mappings":"AAAA,EACI,iBAAkB,CAClB,eACJ,CAEA,GACI,iBAAkB,CAClB,mBACJ","sources":["pages/css/Sobre.css"],"sourcesContent":["p {\r\n    font-size: 1.05rem;\r\n    line-height: 1.6;\r\n}\r\n\r\nul {\r\n    list-style: square;\r\n    padding-left: 1.5rem;\r\n}\r\n"],"names":[],"sourceRoot":""}
