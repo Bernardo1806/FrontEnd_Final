@@ -1,0 +1,15 @@
+[
+    {        
+        "login": "admin",
+        "senha": "admin",
+        "tipo": "Administrador",
+        "email": "quinagabriel8@gmail.com"
+
+    },
+    {        
+        "login": "user",
+        "senha": "user",
+        "tipo": "Usuário",
+        "email": "bernardo@mail.com"
+    }
+]

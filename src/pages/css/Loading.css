@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-10px, 0) rotate(-2deg); }
+  40% { transform: translate(10px, 0) rotate(2deg); }
+  60% { transform: translate(-5px, 0) rotate(-1deg); }
+  80% { transform: translate(5px, 0) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.loading-container {
+  position: fixed; /* <<< Fixo na viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  z-index: 9999; /* <<< Sempre acima de tudo */
+  pointer-events: all;
+}
+
+.shake-sync {
+  animation: shake 0.8s infinite;
+}
+
+.background-shake {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
+  background-image: url('/src/assets/background_loading.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1; /* <<< abaixo do conteúdo e do flash */
+  animation: shake 0.8s infinite;
+}
+
+.white-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  opacity: 1;
+  z-index: 3; /* <<< acima de tudo durante o flash */
+  animation: flashOut 0.3s ease forwards;
+}
+
+@keyframes flashOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.loading-content {
+  position: relative;
+  z-index: 2; /* <<< fica entre o fundo e o flash */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner-wrapper {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-text {
+  position: absolute;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  color: rgb(33, 33, 33);
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}   
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  border-right: 2px solid rgb(33, 33, 33);
+  animation: typing 1.5s steps(10, end) forwards;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  margin-left: 4px;
+  opacity: 0;
+  animation: blink 0.7s step-end infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+.loading-container.opened {
+  opacity: 0;
+  transform: scale(1.2);
+  pointer-events: none;
+}

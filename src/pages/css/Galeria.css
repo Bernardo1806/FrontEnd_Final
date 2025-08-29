@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+
+.shadow-img {
+  background-color: transparent;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.pokedex {
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.pokedex:hover {
+  transform: scale(1.05);
+}
+
+.title-pokedex {
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  -webkit-text-stroke: 1px black;
+}
+
+.Background-pokedex {
+  background: #df2245;
+  border: 7px solid #3f3f3f;
+  outline: 8px solid #ffffff;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pokedex-detail {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
+  height: 10%;
+  max-height: 40vh;
+  border-top: 30px solid #1f1f1f;
+  background-color: white;
+  z-index: 0;
+}
+
+.geracao-select {
+  font-family: 'Pixelify Sans', sans-serif;
+  font-size: larger;
+  background-color: #3c6eaf;
+  color: #ffffff;
+  border: 3px solid #2b4f8c;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  box-shadow: 0 4px #1f3d6d;
+  transition: 0.2s ease;
+}
+
+.geracao-select:hover {
+  background-color: #5a8bd9;
+}
+
+.geracao-select:focus {
+  outline: none;
+  box-shadow: 0 0 10px #3c6eaf;
+}

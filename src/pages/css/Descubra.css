@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+.Background {
+    background: #294e68;
+    height: fit-content;
+    width: fit-content;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border: 6px solid #ecd9ef;
+    outline: 6px solid #caa746;
+}
+
+.title {
+    font-family: 'Press Start 2P', cursive;
+    color: #fff;
+}
+
+.pokemon-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transition: filter 0.5s ease;
+    max-width: none;
+    width: 100%;
+    height: auto;
+}
+
+.modal.fade .modal-dialog {
+    transform: translateY(-50px);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+.modal.show .modal-dialog {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.pokemon-img.silhouette {
+    filter: brightness(0) drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.8));
+}
+
+.pokemon-img.revealed {
+    filter: brightness(1);
+}
+
+.pokemon-background-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    transition: all 0.5s ease;
+    width: 100%;
+    height: 100%;
+    background-image: url('/src/assets/background_descubra.png');
+    background-size: cover;
+    background-position: center;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 0;
+}
+
+.autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-height: 25vh;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.refresh-button {
+    background-color: #fcda5d;
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    color: #373255;
+    border-radius: 50px;
+    padding: 10px;
+    border: 4px solid rgb(11, 45, 66);
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-button:hover {
+    background-color: #a4a55d;
+}
+
+.alert-warning {
+    font-weight: 500;
+}
+
+.shadow-img {
+    /* filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.8)); */
+    background-color: transparent;
+}
+
+.pokemon-mask {
+    width: 95%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #000;
+    transition: transform .5s ease;
+}
+
+.pokemon-mask:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-mask img {
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    transition: transform 0.5s ease;
+}
+
+.pokemon-mask-container {
+    width: 20vw;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+
+.hint-section {
+    background-color: #303969;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90vw;
+}
+
+.hint-icon-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hint-card {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 180px;
+    min-height: 140px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.hint-card.unlocked {
+    border-color: #007bff;
+    background-color: #e8f0ff;
+}
+
+.hint-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.hint-subtext {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.hint-result {
+    font-size: 15px;
+    color: #007bff;
+    font-weight: 500;
+}
