@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row, Col, Card, Spinner, Form } from 'react-bootstrap';
 import './css/Galeria.css';
 import Loading from "./Loading";
+import { Link } from 'react-router-dom';
 import { envioEmail } from '../assets/envioEmail';
 
 const typeColors = {
@@ -121,30 +122,36 @@ function Galeria() {
                             const bgColor = typeColors[mainType] || '#ccc';
 
                             return (
-                                <Col key={idx} md={4} lg={3} className="mb-4">
-                                    <Card style={{ backgroundColor: bgColor, zIndex: '2' }} className="text-white shadow pokedex border border-dark" onClick={() => window.location.href = `/busca/${pokemon.name}`}>
-                                        <Card.Img
-                                            variant="top"
-                                            src={pokemon.image}
-                                            style={{ backgroundColor: '#fff', padding: '1rem' }}
-                                        />
-                                        <Card.Body>
-                                            <Card.Title>
-                                                #{String(pokemon.id).padStart(3, '0')} - {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
-                                            </Card.Title>
-                                            <Card.Text>
-                                                {pokemon.types.map(type => (
-                                                    <span key={type} className="badge bg-dark me-1">
-                                                        {type.toUpperCase()}
-                                                    </span>
-                                                ))}
-                                            </Card.Text>
-                                            <Card.Text className="text-center">
-                                                <small>Clique para ver detalhes</small>
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
+                                <Link
+                                    key={idx}
+                                    to={`/busca/${pokemon.name.toLowerCase()}`}
+                                    style={{ textDecoration: 'none' }}
+                                >
+                                    <Col md={4} lg={3} className="mb-4">
+                                        <Card style={{ backgroundColor: bgColor, zIndex: '2' }} className="text-white shadow pokedex border border-dark">
+                                            <Card.Img
+                                                variant="top"
+                                                src={pokemon.image}
+                                                style={{ backgroundColor: '#fff', padding: '1rem' }}
+                                            />
+                                            <Card.Body>
+                                                <Card.Title>
+                                                    #{String(pokemon.id).padStart(3, '0')} - {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+                                                </Card.Title>
+                                                <Card.Text>
+                                                    {pokemon.types.map(type => (
+                                                        <span key={type} className="badge bg-dark me-1">
+                                                            {type.toUpperCase()}
+                                                        </span>
+                                                    ))}
+                                                </Card.Text>
+                                                <Card.Text className="text-center">
+                                                    <small>Clique para ver detalhes</small>
+                                                </Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                </Link>
                             );
                         })}
                     </Row>

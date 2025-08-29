@@ -1,7 +1,7 @@
 import './App.css'
 import { lazy, Suspense, useState, useEffect } from 'react'
 import Loading from './pages/Loading'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { envioEmail } from "./assets/envioEmail";
 
 const Menu = lazy(() => import('./pages/Menu'))
@@ -74,7 +74,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -87,7 +87,7 @@ function App() {
           <Route path="*" element={<Menu><NotFound>Página não encontrada</NotFound></Menu>} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

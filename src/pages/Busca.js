@@ -9,6 +9,8 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 function Busca() {
     const { nome } = useParams();
+    //const [searchParams] = useSearchParams();
+    //const nome = searchParams.get('nome');
     const [pokemon, setPokemon] = useState(null);
     const [erro, setErro] = useState('');
 
@@ -237,7 +239,7 @@ function Busca() {
                     <div className="pokemon-page-container mx-auto my-5">
 
                         <div className="pokemon-navigation-bar d-flex justify-content-between align-items-center mb-4">
-                            <Link to={`/busca/${prevPokemon.name.toLowerCase()}`} className="nav-button l-detail d-flex align-items-center gap-2">
+                            <Link to={`/busca?nome=${prevPokemon.name.toLowerCase()}`} className="nav-button l-detail d-flex align-items-center gap-2">
                                 <FaArrowLeft />
                                 <span>#{String(prevPokemon.id).padStart(3, '0')} - {prevPokemon.name.toUpperCase()}</span>
                             </Link>
@@ -246,7 +248,7 @@ function Busca() {
                                 #{String(pokemon.id).padStart(3, '0')} - {pokemon.name.toUpperCase()}
                             </h2>
 
-                            <Link to={`/busca/${nextPokemon.name.toLowerCase()}`} className="nav-button r-detail d-flex align-items-center gap-2">
+                            <Link to={`/busca?nome=${nextPokemon.name.toLowerCase()}`} className="nav-button r-detail d-flex align-items-center gap-2">
                                 <span>#{String(nextPokemon.id).padStart(3, '0')} - {nextPokemon.name.toUpperCase()}</span>
                                 <FaArrowRight />
                             </Link>
